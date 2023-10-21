@@ -8,12 +8,12 @@ namespace Itmo.ObjectOrientedProgramming.Lab1.Service;
 
 public class JourneyService
 {
-    private readonly List<IShip> _ships;
+    private readonly List<Ship> _ships;
     private Route _route;
     private IDamageCalcTool _damageCalc;
     private IFuelCalcTool _fuelCalc;
 
-    internal JourneyService(Route route, IEnumerable<IShip> ships, IDamageCalcTool damageCalc, IFuelCalcTool fuelCalc)
+    internal JourneyService(Route route, IEnumerable<Ship> ships, IDamageCalcTool damageCalc, IFuelCalcTool fuelCalc)
     {
         _route = route;
         _damageCalc = damageCalc;
@@ -26,7 +26,7 @@ public class JourneyService
         return _ships.Select(PushShipThroughRoute).ToList();
     }
 
-    private ResultOfJourney PushShipThroughRoute(IShip ship)
+    private ResultOfJourney PushShipThroughRoute(Ship ship)
     {
         int days = 0;
         int fuel = 0;

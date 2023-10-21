@@ -8,14 +8,14 @@ namespace Itmo.ObjectOrientedProgramming.Lab1.Tools;
 
 public class JourneyServiceBuilder
 {
-    private readonly List<IShip> _ships;
+    private readonly List<Ship> _ships;
     private Route? _route;
     private IDamageCalcTool? _damageCalcTool;
     private IFuelCalcTool? _fuelCalcTool;
 
     public JourneyServiceBuilder()
     {
-        _ships = new List<IShip>();
+        _ships = new List<Ship>();
     }
 
     public JourneyServiceBuilder SetRoute(Route route)
@@ -36,7 +36,7 @@ public class JourneyServiceBuilder
         return this;
     }
 
-    public JourneyServiceBuilder AddShip(IShip ship)
+    public JourneyServiceBuilder AddShip(Ship ship)
     {
         _ships.Add(ship);
         return this;

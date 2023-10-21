@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Itmo.ObjectOrientedProgramming.Lab1.Entities;
 using Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 using Itmo.ObjectOrientedProgramming.Lab1.Models;
+using Itmo.ObjectOrientedProgramming.Lab1.Models.Obstacles;
+using Itmo.ObjectOrientedProgramming.Lab1.Models.RouteLen;
 using Itmo.ObjectOrientedProgramming.Lab1.Service;
 using Itmo.ObjectOrientedProgramming.Lab1.Tests.Data;
 using Itmo.ObjectOrientedProgramming.Lab1.Tools;
@@ -22,11 +24,11 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(FirstTestData))]
-    public void Test1(IShip ship)
+    public void Test1(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
-                new RoutePart(new SpaceBuilder().SetSpaceType(SpaceType.HighDensityNebula).Build(), RouteLen.Medium))
+                new RoutePart(new SpaceBuilder().SetSpaceType(SpaceType.HighDensityNebula).Build(), new MediumLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -36,16 +38,16 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(SecondTestData))]
-    public void Test2(IShip ship)
+    public void Test2(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
                 new RoutePart(
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.HighDensityNebula)
-                        .AddObstacle(Obstacles.AntimatterFlash)
+                        .AddObstacle(new AntimatterFlash())
                         .Build(),
-                    RouteLen.Small))
+                    new SmallLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -55,16 +57,16 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(ThirdTestData))]
-    public void Test3(IShip ship)
+    public void Test3(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
                 new RoutePart(
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.NeutronParticlesNebula)
-                        .AddObstacle(Obstacles.SpaceWhale)
+                        .AddObstacle(new SpaceWhale())
                         .Build(),
-                    RouteLen.Small))
+                    new SmallLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -74,7 +76,7 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(FourthTestData))]
-    public void Test4(IShip ship)
+    public void Test4(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
@@ -82,7 +84,7 @@ public class SpaceModelingTests
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.DefaultSpace)
                         .Build(),
-                    RouteLen.Small))
+                    new SmallLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -95,7 +97,7 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(FifthTestData))]
-    public void Test5(IShip ship)
+    public void Test5(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
@@ -103,7 +105,7 @@ public class SpaceModelingTests
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.HighDensityNebula)
                         .Build(),
-                    RouteLen.Medium))
+                    new MediumLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -116,7 +118,7 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(SixthTestData))]
-    public void Test6(IShip ship)
+    public void Test6(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder().AddRoute(
@@ -124,7 +126,7 @@ public class SpaceModelingTests
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.NeutronParticlesNebula)
                         .Build(),
-                    RouteLen.Small))
+                    new SmallLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();
@@ -137,7 +139,7 @@ public class SpaceModelingTests
 
     [Theory]
     [ClassData(typeof(SeventhTestData))]
-    public void Test7(IShip ship)
+    public void Test7(Ship ship)
     {
         ArgumentNullException.ThrowIfNull(ship);
         Route route = new RouteBuilder()
@@ -145,17 +147,19 @@ public class SpaceModelingTests
                 new RoutePart(
                     new SpaceBuilder()
                         .SetSpaceType(SpaceType.DefaultSpace)
-                        .AddObstacle(Obstacles.Meteorite)
-                        .AddObstacle(Obstacles.Meteorite)
-                        .AddObstacle(Obstacles.Asteroid)
+                        .AddObstacle(new Meteorite())
+                        .AddObstacle(new Meteorite())
+                        .AddObstacle(new Asteroid())
                         .Build(),
-                    RouteLen.Medium))
+                    new MediumLen()))
             .AddRoute(
                 new RoutePart(
-                    new SpaceBuilder().SetSpaceType(SpaceType.DefaultSpace).AddObstacle(Obstacles.Meteorite)
-                        .AddObstacle(Obstacles.Meteorite)
+                    new SpaceBuilder()
+                        .SetSpaceType(SpaceType.DefaultSpace)
+                        .AddObstacle(new Meteorite())
+                        .AddObstacle(new Meteorite())
                         .Build(),
-                    RouteLen.Small))
+                    new SmallLen()))
             .Build();
         JourneyService service = new JourneyServiceBuilder().AddShip(ship).SetRoute(route)
             .SetDamageCalcTool(new DamageCalcTool()).SetFuelCalcTool(new FuelCountTool()).Build();

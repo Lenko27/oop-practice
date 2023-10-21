@@ -1,11 +1,10 @@
 ﻿using Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
-using Itmo.ObjectOrientedProgramming.Lab1.Models;
 
 namespace Itmo.ObjectOrientedProgramming.Lab1.Entities;
 
 public class RoutePart
 {
-    public RoutePart(ISpaceType spaceType, RouteLen len)
+    public RoutePart(ISpaceType spaceType, IRouteLen len)
     {
         SpaceType = spaceType;
         Len = len;
@@ -13,5 +12,5 @@ public class RoutePart
 
     public ISpaceType SpaceType { get; }
 
-    public RouteLen Len { get; }
+    public IRouteLen Len { get; }
 }

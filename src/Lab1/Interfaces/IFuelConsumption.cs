@@ -1,10 +1,8 @@
-﻿namespace Itmo.ObjectOrientedProgramming.Lab1.Models;
+﻿namespace Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 
-public enum FuelConsumption
+public interface IFuelConsumption
 {
-    Linear,
-    Log,
-    Square,
+    int GetCoefficient(int fuel);
 }
 
 /*

@@ -10,11 +10,11 @@ namespace Itmo.ObjectOrientedProgramming.Lab1.Tools;
 public class SpaceBuilder
 {
     private SpaceType? _spaceType;
-    private List<Obstacles> _obstacles;
+    private List<IObstacle> _obstacles;
 
     public SpaceBuilder()
     {
-        _obstacles = new List<Obstacles>();
+        _obstacles = new List<IObstacle>();
     }
 
     public SpaceBuilder SetSpaceType(SpaceType spaceType)
@@ -23,7 +23,7 @@ public class SpaceBuilder
         return this;
     }
 
-    public SpaceBuilder AddObstacle(Obstacles obstacle)
+    public SpaceBuilder AddObstacle(IObstacle obstacle)
     {
         _obstacles.Add(obstacle);
         return this;
@@ -36,7 +36,7 @@ public class SpaceBuilder
             SpaceType.DefaultSpace => new DefaultSpace(_obstacles),
             SpaceType.HighDensityNebula => new HighDensityNebula(_obstacles),
             SpaceType.NeutronParticlesNebula => new NeutronParticlesNebula(_obstacles),
-            null => throw new BuilderException("space type hasn't been choosen"),
+            null => throw new BuilderException("space type hasn't been chosen"),
             _ => throw new ArgumentOutOfRangeException(),
         };
 

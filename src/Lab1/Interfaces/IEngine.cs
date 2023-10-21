@@ -1,9 +1,9 @@
-﻿using Itmo.ObjectOrientedProgramming.Lab1.Models;
-
-namespace Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
+﻿namespace Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 
 public interface IEngine
 {
-    int Fuel { get; set; }
-    FuelConsumption FuelConsumption { get; }
+    int Fuel { get; }
+    IFuelConsumption? FuelConsumption { get; }
+
+    void SetFuel(int fuel);
 }

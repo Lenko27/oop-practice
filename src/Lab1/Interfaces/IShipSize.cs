@@ -1,10 +1,8 @@
-﻿namespace Itmo.ObjectOrientedProgramming.Lab1.Models;
+﻿namespace Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 
-public enum ShipSize
+public interface IShipSize
 {
-    Small,
-    Medium,
-    Big,
+    int GetCoefficient();
 }
 
 /*

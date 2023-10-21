@@ -5,5 +5,5 @@ namespace Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 
 public interface IFuelCalcTool
 {
-    ResultOfJourney CalcFuel(IShip ship, RoutePart part);
+    ResultOfJourney CalcFuel(Ship ship, RoutePart part);
 }

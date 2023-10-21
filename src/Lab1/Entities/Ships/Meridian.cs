@@ -1,28 +1,22 @@
-﻿using Itmo.ObjectOrientedProgramming.Lab1.Entities.Engines;
-using Itmo.ObjectOrientedProgramming.Lab1.Entities.Engines.ImpulseEngines;
+﻿using Itmo.ObjectOrientedProgramming.Lab1.Entities.Engines.ImpulseEngines;
 using Itmo.ObjectOrientedProgramming.Lab1.Interfaces;
 using Itmo.ObjectOrientedProgramming.Lab1.Models;
+using Itmo.ObjectOrientedProgramming.Lab1.Models.CoreEndurance;
+using Itmo.ObjectOrientedProgramming.Lab1.Models.Deflectors;
+using Itmo.ObjectOrientedProgramming.Lab1.Models.ShipSize;
 
 namespace Itmo.ObjectOrientedProgramming.Lab1.Entities.Ships;
 
-public class Meridian : IShip
+public class Meridian : Ship
 {
     public Meridian(int fuel)
     {
         ImpulseEngine = new ImpulseEngineClassE(fuel);
         IsNeutronDeflectorExist = true;
-        Deflector = Deflectors.Class2;
-        Endurance = CoreEndurance.Class2;
-        Size = ShipSize.Medium;
+        Deflector = new DeflectorClass2();
+        Endurance = new CoreClass2();
+        Size = new MediumSize();
         Condition = ShipCondition.Alive;
         JumpingEngine = null;
     }
-
-    public Deflectors Deflector { get; }
-    public CoreEndurance Endurance { get; }
-    public ShipSize Size { get; }
-    public ShipCondition Condition { get; }
-    public ImpulseEngine? ImpulseEngine { get; }
-    public JumpingEngine? JumpingEngine { get; }
-    public bool IsNeutronDeflectorExist { get; }
 }
