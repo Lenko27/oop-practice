@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Itmo.ObjectOrientedProgramming.Lab2.Exceptions;
-using Itmo.ObjectOrientedProgramming.Lab2.Infrastructure;
+using Itmo.ObjectOrientedProgramming.Lab2.Services;
 
 namespace Itmo.ObjectOrientedProgramming.Lab2.Models;
 
@@ -32,7 +32,7 @@ public class Computer
         get => _motherboard;
         set
         {
-            if (!ComputerComponentsRepository.Motherboards.Contains(value))
+            if (!ComputerComponentsService.Repository.Motherboards.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _motherboard = value;
@@ -44,7 +44,7 @@ public class Computer
         get => _cpu;
         set
         {
-            if (!ComputerComponentsRepository.Cpus.Contains(value))
+            if (!ComputerComponentsService.Repository.Cpus.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _cpu = value;
@@ -56,7 +56,7 @@ public class Computer
         get => _coolingSystem;
         set
         {
-            if (!ComputerComponentsRepository.CoolingSystems.Contains(value))
+            if (!ComputerComponentsService.Repository.CoolingSystems.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _coolingSystem = value;
@@ -68,7 +68,7 @@ public class Computer
         get => _gpu;
         set
         {
-            if (!ComputerComponentsRepository.Gpus.Contains(value))
+            if (!ComputerComponentsService.Repository.Gpus.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _gpu = value;
@@ -80,7 +80,7 @@ public class Computer
         get => _case;
         set
         {
-            if (!ComputerComponentsRepository.ComputerCases.Contains(value))
+            if (!ComputerComponentsService.Repository.ComputerCases.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _case = value;
@@ -92,7 +92,7 @@ public class Computer
         get => _powerSupply;
         set
         {
-            if (!ComputerComponentsRepository.PowerSupplies.Contains(value))
+            if (!ComputerComponentsService.Repository.PowerSupplies.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _powerSupply = value;
@@ -104,7 +104,7 @@ public class Computer
         get => _wifiAdapter;
         set
         {
-            if (!ComputerComponentsRepository.WiFiAdapters.Contains(value))
+            if (!ComputerComponentsService.Repository.WiFiAdapters.Contains(value))
                 throw new ComponentNotRegisteredException();
 
             _wifiAdapter = value;
@@ -119,7 +119,7 @@ public class Computer
     {
         ArgumentNullException.ThrowIfNull(ssd, nameof(ssd));
 
-        if (!ComputerComponentsRepository.SsdDrives.Contains(ssd))
+        if (!ComputerComponentsService.Repository.SsdDrives.Contains(ssd))
             throw new ComponentNotRegisteredException();
 
         if (!_ssdDrives.Contains(ssd))
@@ -130,7 +130,7 @@ public class Computer
     {
         ArgumentNullException.ThrowIfNull(hardDisk, nameof(hardDisk));
 
-        if (!ComputerComponentsRepository.HardDisks.Contains(hardDisk))
+        if (!ComputerComponentsService.Repository.HardDisks.Contains(hardDisk))
             throw new ComponentNotRegisteredException();
 
         if (!_hardDisks.Contains(hardDisk))
@@ -141,7 +141,7 @@ public class Computer
     {
         ArgumentNullException.ThrowIfNull(ram, nameof(ram));
 
-        if (!ComputerComponentsRepository.Rams.Contains(ram))
+        if (!ComputerComponentsService.Repository.Rams.Contains(ram))
             throw new ComponentNotRegisteredException();
 
         if (!_rams.Contains(ram))

@@ -34,15 +34,15 @@ public class Tests
         HardDisk hardDisk = new HardDiskEngineer(
             new HardDiskBuilder()).ManufactureSeagateBarraCuda();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddRam(ram);
-        ComputerComponentsRepository.AddHardDisk(hardDisk);
-        ComputerComponentsRepository.AddSsdDrive(ssd);
-        ComputerComponentsRepository.AddComputerCase(computerCase);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddRam(ram);
+        ComputerComponentsService.Repository.AddHardDisk(hardDisk);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd);
+        ComputerComponentsService.Repository.AddComputerCase(computerCase);
 
         Computer computer = new ComputerConstructor()
             .AddMotherboard(motherboard)
@@ -86,15 +86,15 @@ public class Tests
         SsdDrive ssd1 = ssdEngineer.ManufactureApacerAS350Panther();
         SsdDrive ssd2 = ssdEngineer.ManufactureApacerAS350Panther();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddRam(ram);
-        ComputerComponentsRepository.AddSsdDrive(ssd1);
-        ComputerComponentsRepository.AddSsdDrive(ssd2);
-        ComputerComponentsRepository.AddComputerCase(computerCase);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddRam(ram);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd1);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd2);
+        ComputerComponentsService.Repository.AddComputerCase(computerCase);
 
         Computer computer = new ComputerConstructor()
             .AddMotherboard(motherboard)
@@ -140,15 +140,15 @@ public class Tests
         HardDisk hardDisk = new HardDiskEngineer(
             new HardDiskBuilder()).ManufactureSeagateBarraCuda();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddRam(ram);
-        ComputerComponentsRepository.AddHardDisk(hardDisk);
-        ComputerComponentsRepository.AddSsdDrive(ssd);
-        ComputerComponentsRepository.AddComputerCase(computerCase);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddRam(ram);
+        ComputerComponentsService.Repository.AddHardDisk(hardDisk);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd);
+        ComputerComponentsService.Repository.AddComputerCase(computerCase);
 
         Computer computer = new ComputerConstructor()
             .AddMotherboard(motherboard)
@@ -190,13 +190,13 @@ public class Tests
         SsdDrive ssd = new SsdDriveEngineer(
             new SsdDriveBuilder()).ManufactureApacerAS350Panther();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddRam(ram);
-        ComputerComponentsRepository.AddSsdDrive(ssd);
-        ComputerComponentsRepository.AddComputerCase(computerCase);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddRam(ram);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd);
+        ComputerComponentsService.Repository.AddComputerCase(computerCase);
 
         _ = Assert.Throws<MissingComponentException>(() =>
         {
@@ -234,14 +234,14 @@ public class Tests
         SsdDrive ssd = new SsdDriveEngineer(
             new SsdDriveBuilder()).ManufactureApacerAS350Panther();
 
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddRam(ram);
-        ComputerComponentsRepository.AddSsdDrive(ssd);
-        ComputerComponentsRepository.AddComputerCase(computerCase);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddRam(ram);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd);
+        ComputerComponentsService.Repository.AddComputerCase(computerCase);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -277,8 +277,8 @@ public class Tests
             .AddSupportedSocket(CpuSocket.LGA2066)
             .Build();
 
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -298,9 +298,9 @@ public class Tests
         Motherboard motherboard = new MotherboardEngineer(
             new MotherboardBuilder()).ManufactureAFOXIH110D4MA2();
 
-        ComputerComponentsRepository.AddCpu(cpu);
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddRam(ram);
+        ComputerComponentsService.Repository.AddCpu(cpu);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddRam(ram);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -342,12 +342,12 @@ public class Tests
         ComputerCase smallCase = new ComputerCaseEngineer(
             new ComputerCaseBuilder()).ManufactureSmallCase();
 
-        ComputerComponentsRepository.AddGpu(bigGpu);
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddMotherboard(bigMotherboard);
-        ComputerComponentsRepository.AddCoolingSystem(coolingSystem);
-        ComputerComponentsRepository.AddComputerCase(bigCase);
-        ComputerComponentsRepository.AddComputerCase(smallCase);
+        ComputerComponentsService.Repository.AddGpu(bigGpu);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddMotherboard(bigMotherboard);
+        ComputerComponentsService.Repository.AddCoolingSystem(coolingSystem);
+        ComputerComponentsService.Repository.AddComputerCase(bigCase);
+        ComputerComponentsService.Repository.AddComputerCase(smallCase);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -383,8 +383,8 @@ public class Tests
         PowerSupply powerSupply = new PowerSupplyEngineer(
             new PowerSupplyBuilder()).ManufactureExeGateUN350();
 
-        ComputerComponentsRepository.AddGpu(gpu);
-        ComputerComponentsRepository.AddPowerSupply(powerSupply);
+        ComputerComponentsService.Repository.AddGpu(gpu);
+        ComputerComponentsService.Repository.AddPowerSupply(powerSupply);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -404,8 +404,8 @@ public class Tests
         WiFiAdapter wifiAdapter = new WiFiAdapterEngineer(
            new WiFiAdapterBuilder()).ManufactureTPLinkArcherT2E();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddWiFiAdapter(wifiAdapter);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddWiFiAdapter(wifiAdapter);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
@@ -429,12 +429,12 @@ public class Tests
         SsdDrive ssd4 = ssdEngineer.ManufactureApacerAS350Panther();
         SsdDrive ssd5 = ssdEngineer.ManufactureApacerAS350Panther();
 
-        ComputerComponentsRepository.AddMotherboard(motherboard);
-        ComputerComponentsRepository.AddSsdDrive(ssd1);
-        ComputerComponentsRepository.AddSsdDrive(ssd2);
-        ComputerComponentsRepository.AddSsdDrive(ssd3);
-        ComputerComponentsRepository.AddSsdDrive(ssd4);
-        ComputerComponentsRepository.AddSsdDrive(ssd5);
+        ComputerComponentsService.Repository.AddMotherboard(motherboard);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd1);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd2);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd3);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd4);
+        ComputerComponentsService.Repository.AddSsdDrive(ssd5);
 
         _ = Assert.Throws<IncompatibleComponentException>(() =>
         {
