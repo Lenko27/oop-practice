@@ -1,5 +1,4 @@
-#oop-practice
-
+# oop-practice
 Studying creational, structural and behavioral patterns in OOP paradigm
 
 Notion to tasks
